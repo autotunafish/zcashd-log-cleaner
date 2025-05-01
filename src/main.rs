@@ -6,9 +6,9 @@ use std::time::Duration;
 
 fn main() {
     //Name of the dirty log file
-    let pathin = Path::new("zcashd.log");
+    let pathin = Path::new("../../zcashd.log");
     //Name of the clean log file
-    let pathout = Path::new("zcashd2.log");
+    let pathout = Path::new("../../zcashd2.log");
 
     //These hold the cleaned string before it's written and so must persist till just after it's loop
     let mut _newrows4 = String::new();
@@ -34,7 +34,7 @@ fn main() {
         fs::write(pathout, "").expect("Unable to create zcashd2.log");
     }
 
-    //Will panic if zcashd.log is not alongside, deal with it
+    //Will panic if zcashd.log is not present
     let _file = File::open(pathin)
         .expect("*****Unable to open zcashd.log. Is a zcashd.log present in this directory?******");
 
